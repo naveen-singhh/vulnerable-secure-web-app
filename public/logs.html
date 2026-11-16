@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071426">
+    <title>Security Logs | Vulnerable vs Secure Web App</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js" defer></script>
+  </head>
+  <body data-page="logs">
+    <div class="app-shell">
+      <div id="sidebar-slot"></div>
+      <main class="main-content">
+        <header class="topbar">
+          <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="topbar-label"><span class="status-dot"></span> Local security lab</div>
+          <span class="topbar-note">Security monitoring</span>
+        </header>
+        <div class="page-content">
+          <div class="page-intro">
+            <span class="eyebrow">EXPERIMENT 7 · INTRUSION DETECTION SYSTEM</span>
+            <h1>Security event log</h1>
+            <p>Review suspicious test activity recorded by the local SQLi and XSS demonstrations.</p>
+          </div>
+          <section class="content-card log-card">
+            <div class="card-heading">
+              <div><span class="eyebrow">MONITORING</span><h2>Recorded events</h2></div>
+              <span class="live-label"><span class="status-dot"></span> Local event store</span>
+            </div>
+            <div class="table-responsive">
+              <table class="table event-table">
+                <thead><tr><th scope="col">Date &amp; time</th><th scope="col">Event type</th><th scope="col">Mode</th><th scope="col">Test status</th><th scope="col">Details</th></tr></thead>
+                <tbody id="logs-body" aria-live="polite">
+                  <tr><td class="empty-state" colspan="5">The event table will populate when the lab modules are connected.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="form-hint">The log records event type, mode, outcome, and time. Raw test input is not shown here.</p>
+          </section>
+          <footer class="page-footer">Security logs support the intrusion detection learning objective.</footer>
+        </div>
+      </main>
+    </div>
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+  </body>
+</html>

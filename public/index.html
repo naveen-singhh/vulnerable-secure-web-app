@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071426">
+    <title>Dashboard | Vulnerable vs Secure Web App</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js" defer></script>
+  </head>
+  <body data-page="dashboard">
+    <div class="app-shell">
+      <div id="sidebar-slot"></div>
+      <main class="main-content">
+        <header class="topbar">
+          <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="topbar-label"><span class="status-dot"></span> Local security lab</div>
+          <span class="topbar-note">SQLi · XSS · Security Logs</span>
+        </header>
+
+        <div class="page-content">
+          <section class="hero-panel">
+            <div class="hero-copy">
+              <span class="eyebrow">LOCAL SECURITY DEMO</span>
+              <h1>Vulnerable vs Secure<br>Web App</h1>
+              <p>Explore how unsafe input handling creates risk—and how simple defensive practices prevent it.</p>
+              <a class="btn btn-primary" href="/sqli.html">Explore the labs <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <div class="shield-mark">✓</div>
+              <span class="art-caption">SECURE BY DESIGN</span>
+            </div>
+          </section>
+
+          <section class="student-card" aria-label="Demo details">
+            <div>
+              <span class="eyebrow">RUNS LOCALLY</span>
+              <h2>Fictional demo data</h2>
+            </div>
+            <div class="student-meta">
+              <span><small>HOST</small>127.0.0.1</span>
+              <span><small>DATA</small>Local only</span>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <div><span class="eyebrow">LEARNING MODULES</span><h2>Choose a lab</h2></div>
+              <span class="section-count">02 demonstrations</span>
+            </div>
+            <div class="row g-3">
+              <div class="col-lg-6">
+                <a class="module-card" href="/sqli.html">
+                  <span class="module-icon icon-blue">DB</span>
+                  <span class="module-copy"><span class="module-title">SQL Injection</span><span>Compare unsafe query construction with parameterized input.</span></span>
+                  <span class="module-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <div class="col-lg-6">
+                <a class="module-card" href="/xss.html">
+                  <span class="module-icon icon-violet">&lt;/&gt;</span>
+                  <span class="module-copy"><span class="module-title">Cross-Site Scripting</span><span>See why untrusted content must be rendered as text.</span></span>
+                  <span class="module-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <div><span class="eyebrow">DETECTION &amp; RESPONSE</span><h2>Security monitoring</h2></div>
+            </div>
+            <a class="monitor-card" href="/logs.html">
+              <span class="monitor-pulse"></span>
+              <span class="module-copy"><span class="module-title">Security event log</span><span>Review suspicious lab events, their modes, and detection status.</span></span>
+              <span class="btn btn-outline-light btn-sm">View logs</span>
+            </a>
+          </section>
+
+          <footer class="page-footer">Educational use only · Localhost demo with fictional data</footer>
+        </div>
+      </main>
+    </div>
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+  </body>
+</html>

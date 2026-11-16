@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071426">
+    <title>XSS Lab | Vulnerable vs Secure Web App</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js" defer></script>
+  </head>
+  <body data-page="xss">
+    <div class="app-shell">
+      <div id="sidebar-slot"></div>
+      <main class="main-content">
+        <header class="topbar">
+          <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="topbar-label"><span class="status-dot"></span> Local security lab</div>
+          <span class="topbar-note">Cross-Site Scripting</span>
+        </header>
+        <div class="page-content">
+          <div class="page-intro">
+            <span class="eyebrow">LAB 02 · OUTPUT HANDLING</span>
+            <h1>Cross-Site Scripting</h1>
+            <p>Compare unsafe HTML rendering with safe text rendering using a harmless, local-only proof of concept.</p>
+          </div>
+          <div class="alert lab-warning" role="note"><strong>Isolated demonstration:</strong> use only harmless test input in this local lab. The secure mode displays submitted content as text.</div>
+          <div class="row g-4">
+            <div class="col-xl-7">
+              <section class="content-card">
+                <div class="card-heading">
+                  <div><span class="eyebrow">COMMENT FORM</span><h2>Post a test comment</h2></div>
+                  <span class="mode-badge badge-neutral">Local demo</span>
+                </div>
+                <form id="xss-form">
+                  <label class="form-label" for="comment">Comment</label>
+                  <textarea class="form-control lab-input" id="comment" name="comment" rows="4" maxlength="1000" placeholder="Type a harmless test comment..." required></textarea>
+                  <button class="sample-button" id="use-xss-poc" type="button">Use harmless proof of concept</button>
+                  <fieldset class="mode-selector">
+                    <legend class="form-label">Rendering mode</legend>
+                    <label class="mode-option mode-danger"><input type="radio" name="mode" value="vulnerable" checked><span><strong>Vulnerable</strong><small>Unsafe HTML rendering · local lab only</small></span></label>
+                    <label class="mode-option mode-safe"><input type="radio" name="mode" value="secure"><span><strong>Secure</strong><small>Render as text · no HTML execution</small></span></label>
+                  </fieldset>
+                  <button class="btn btn-primary" type="submit">Submit local comment</button>
+                  <p class="form-hint">Comments are demonstration data and stay in the local project database.</p>
+                </form>
+              </section>
+              <section class="content-card result-card" aria-live="polite">
+                <div class="card-heading"><div><span class="eyebrow">COMMENT PREVIEW</span><h2>Rendered output</h2></div><span class="mode-badge badge-neutral" id="xss-status">Waiting for input</span></div>
+                <div class="comment-preview" id="comment-preview">Your submitted comment will appear here.</div>
+                <p class="form-hint" id="xss-summary">Vulnerable output is isolated in a sandbox. Secure output is rendered as plain text.</p>
+              </section>
+            </div>
+            <div class="col-xl-5">
+              <aside class="info-card">
+                <span class="info-icon">i</span><span class="eyebrow">WHAT TO NOTICE</span>
+                <h2>Markup or plain text?</h2>
+                <p>Cross-site scripting can happen when untrusted content is interpreted as browser markup. Safe output handling ensures a comment is shown as text.</p>
+                <div class="comparison-row"><span class="comparison-dot dot-danger"></span><span><strong>Vulnerable</strong><small>Untrusted markup may be interpreted.</small></span></div>
+                <div class="comparison-row"><span class="comparison-dot dot-safe"></span><span><strong>Secure</strong><small>Untrusted content stays visible text.</small></span></div>
+              </aside>
+            </div>
+          </div>
+          <footer class="page-footer">XSS Lab · Harmless local demonstrations only</footer>
+        </div>
+      </main>
+    </div>
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+  </body>
+</html>

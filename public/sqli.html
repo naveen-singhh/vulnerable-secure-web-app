@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071426">
+    <title>SQL Injection Lab | Vulnerable vs Secure Web App</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js" defer></script>
+  </head>
+  <body data-page="sqli">
+    <div class="app-shell">
+      <div id="sidebar-slot"></div>
+      <main class="main-content">
+        <header class="topbar">
+          <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="topbar-label"><span class="status-dot"></span> Local security lab</div>
+          <span class="topbar-note">SQL Injection</span>
+        </header>
+        <div class="page-content">
+          <div class="page-intro">
+            <span class="eyebrow">LAB 01 · QUERY SAFETY</span>
+            <h1>SQL Injection</h1>
+            <p>Compare a deliberately unsafe local query with a parameterized query. Only fictional demo accounts are used.</p>
+          </div>
+          <div class="alert lab-warning" role="note"><strong>Isolated demonstration:</strong> this lab will run only against the local sample database. Do not enter real credentials or use this technique on other systems.</div>
+          <div class="row g-4">
+            <div class="col-xl-7">
+              <section class="content-card">
+                <div class="card-heading">
+                  <div><span class="eyebrow">INPUT</span><h2>Find a demo account</h2></div>
+                  <span class="mode-badge badge-neutral">Local sample data</span>
+                </div>
+                <form id="sqli-form">
+                  <label class="form-label" for="username">Username to search</label>
+                  <input class="form-control lab-input" id="username" name="username" maxlength="80" autocomplete="off" placeholder="For example: demo_guest" required>
+                  <fieldset class="mode-selector">
+                    <legend class="form-label">Implementation mode</legend>
+                    <label class="mode-option mode-danger"><input type="radio" name="mode" value="vulnerable" checked><span><strong>Vulnerable</strong><small>Unsafe query construction · local lab only</small></span></label>
+                    <label class="mode-option mode-safe"><input type="radio" name="mode" value="secure"><span><strong>Secure</strong><small>Parameterized query · input treated as data</small></span></label>
+                  </fieldset>
+                  <button class="btn btn-primary" type="submit">Run local comparison</button>
+                  <p class="form-hint">Local example: <code>' OR '1'='1</code>. Results are limited to fictional users in this project database.</p>
+                </form>
+              </section>
+              <section class="content-card result-card" aria-live="polite">
+                <div class="card-heading"><div><span class="eyebrow">TEST RESULT</span><h2>Ready to test</h2></div><span class="result-indicator">●</span></div>
+                <p class="muted-copy">Submit a username to see how each implementation handles the same input.</p>
+                <div class="result-output" id="sqli-result">No query has been run yet.</div>
+              </section>
+            </div>
+            <div class="col-xl-5">
+              <aside class="info-card">
+                <span class="info-icon">i</span><span class="eyebrow">WHAT TO NOTICE</span>
+                <h2>Data or query structure?</h2>
+                <p>SQL injection is possible when input is combined directly with SQL text. Parameterized queries keep the command structure separate from user-provided values.</p>
+                <div class="comparison-row"><span class="comparison-dot dot-danger"></span><span><strong>Vulnerable</strong><small>Input can alter the constructed query.</small></span></div>
+                <div class="comparison-row"><span class="comparison-dot dot-safe"></span><span><strong>Secure</strong><small>Input is bound as a value, not SQL.</small></span></div>
+              </aside>
+            </div>
+          </div>
+          <footer class="page-footer">SQL Injection Lab · Localhost only · Fictional data</footer>
+        </div>
+      </main>
+    </div>
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+  </body>
+</html>
